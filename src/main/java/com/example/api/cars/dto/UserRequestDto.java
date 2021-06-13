@@ -1,13 +1,12 @@
 package com.example.api.cars.dto;
 
+import com.example.api.cars.entity.User;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class UserRequestDto {
 
@@ -51,6 +50,10 @@ public class UserRequestDto {
 
     public LocalDate getBirthday() {
         return birthday;
+    }
+
+    public User toModel(){
+        return new User(name,email,cpf,birthday);
     }
 
 }

@@ -6,11 +6,11 @@ import java.time.LocalDate;
 
 public class UserResponseDto {
 
-    private int id;
-    private String name;
-    private String email;
-    private String cpf;
-    private LocalDate birthday;
+    private final int id;
+    private final String name;
+    private final String email;
+    private final String cpf;
+    private final LocalDate birthday;
 
     public UserResponseDto(User user){
         this.id = user.getId();
