@@ -1,8 +1,12 @@
 package com.example.api.cars.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.Objects;
 
@@ -18,11 +22,14 @@ public class User {
     private String name;
 
     @Column(nullable = false)
+    @Email
     private String email;
 
     @Column(nullable = false)
+    @CPF
     private String Cpf;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private Date birthday;
 
