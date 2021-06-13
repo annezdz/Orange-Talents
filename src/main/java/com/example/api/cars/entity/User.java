@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,26 +22,23 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    @Email
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
-    @CPF
-    private String Cpf;
+    @Column(nullable = false, unique = true)
+    private String cpf;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
-    private Date birthday;
+    private LocalDate birthday;
 
     @Deprecated
-    public User() { }
+    public User(){ }
 
-    public User(int id, String name, String email, String cpf, Date birthday) {
-        this.id = id;
+    public User( String name, String email, String cpf, LocalDate birthday) {
         this.name = name;
         this.email = email;
-        Cpf = cpf;
+        this.cpf = cpf;
         this.birthday = birthday;
     }
 
@@ -57,21 +55,11 @@ public class User {
     }
 
     public String getCpf() {
-        return Cpf;
+        return cpf;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", Cpf='" + Cpf + '\'' +
-                ", birthday=" + birthday +
-                '}';
     }
 
     @Override
@@ -79,11 +67,21 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(Cpf, user.Cpf) && Objects.equals(birthday, user.birthday);
+        return Objects.equals(name, user.name) && Objects.equals(email, user.email) && Objects.equals(cpf, user.cpf) && Objects.equals(birthday, user.birthday);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, Cpf, birthday);
+        return Objects.hash(name, email, cpf, birthday);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", birthday=" + birthday +
+                '}';
     }
 }
