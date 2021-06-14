@@ -28,7 +28,6 @@ public class User {
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(nullable = false)
     private LocalDate birthday;
 
