@@ -1,7 +1,9 @@
 package com.example.api.cars.entity;
 
+import com.example.api.cars.dto.UserResponseDto;
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,6 +59,13 @@ public class UserTest {
                 LocalDate.of(1985,07,28));
         assertEquals(user1.hashCode(),user2.hashCode());
         assertEquals(user1.getCpf(),user2.getCpf());
+    }
+
+    @Test
+    public void shouldGetAnIde() throws ParseException {
+        User actual = new User();
+        assertEquals(0, actual.getId());
+
     }
 
 

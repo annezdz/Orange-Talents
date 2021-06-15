@@ -23,7 +23,7 @@ public class UserResponseDto {
         this.birthday = user.getBirthday();
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

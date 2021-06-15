@@ -3,11 +3,13 @@ package com.example.api.cars.dto;
 import com.example.api.cars.entity.User;
 import com.example.api.cars.validator.UniqueUser;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.aspectj.lang.annotation.After;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 
 public class UserRequestDto {
