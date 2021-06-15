@@ -5,8 +5,6 @@ import com.example.api.cars.entity.User;
 import com.example.api.cars.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-
 @Service
 public class UserServiceImpl implements UserService{
 
