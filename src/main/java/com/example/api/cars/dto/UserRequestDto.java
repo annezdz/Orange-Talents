@@ -60,7 +60,7 @@ public class UserRequestDto {
     }
 
     public User toModel(){
-        return new User(name,email,cpf,birthday);
+        return new User(name,email,cpf.replaceAll("[.\\-]",""),birthday);
     }
 
 }

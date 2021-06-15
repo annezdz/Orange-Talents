@@ -23,4 +23,5 @@ public class UniqueUserValidator implements ConstraintValidator<UniqueUser, Stri
         return userField != null && !(userRepository.existsByCpf(userField)
                 || userRepository.existsByEmail(userField));
     }
+
 }

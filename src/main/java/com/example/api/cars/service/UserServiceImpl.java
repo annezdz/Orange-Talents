@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public User create(UserRequestDto userRequestDto) {
+
         return userRepository.save(userRequestDto.toModel());
     }
 

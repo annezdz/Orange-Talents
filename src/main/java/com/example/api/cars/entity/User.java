@@ -53,9 +53,7 @@ public class User {
         return email;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
+    public String getCpf() { return cpf; }
 
     public LocalDate getBirthday() {
         return birthday;

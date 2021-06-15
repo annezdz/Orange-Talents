@@ -12,6 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.text.ParseException;
 
 @RestController
 @RequestMapping("api/v1/users")
@@ -25,7 +26,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid UserRequestDto userRequestDto,
-                                    UriComponentsBuilder uriComponentsBuilder) {
+                                    UriComponentsBuilder uriComponentsBuilder) throws ParseException {
 
         var createdUser = userService.create(userRequestDto);
         URI location = uriComponentsBuilder
