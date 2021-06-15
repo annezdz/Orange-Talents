@@ -21,29 +21,25 @@ public class UserResponseTest {
     }
 
     @Test
-    public void shouldCreateResponse()  {
-        UserResponseDto actual = null;
-        try {
-            actual = new UserResponseDto
-                    (new User("Anne Zimmermann","annezdz@hotmail.com","90957416059",
-                    LocalDate.of(1985,07,28)));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        assertEquals("Anne Zimmermann",actual.getName());
-        assertEquals("annezdz@hotmail.com",actual.getEmail());
-        try {
-            assertEquals("909.574.160-59", actual.formatCpf(actual.getCpf()));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        assertEquals(LocalDate.of(1985,07,28),actual.getBirthday());
+    public void shouldCreateResponse() throws ParseException {
+        UserResponseDto actual = new UserResponseDto(new User("teste","teste@teste.com","90957416059",
+                LocalDate.of(2020,07,07)));
+        assertEquals("teste",actual.getName());
+        assertEquals("teste@teste.com", actual.getEmail());
+        assertEquals(LocalDate.of(2020,07,07),actual.getBirthday());
+        assertEquals("909.574.160-59", actual.getCpf());
     }
 
     @Test
     public void shouldGetAnIde() throws ParseException {
         UserResponseDto actual = new UserResponseDto(new User());
         assertEquals(0, actual.getId());
+    }
 
+    @Test
+    public void shouldThrowAnException() throws ParseException {
+        assertThrows(ParseException.class, () -> new UserResponseDto(new User
+                ("teste","teste","909.574.16059",
+                LocalDate.of(1985,07,28))));
     }
 }
