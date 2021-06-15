@@ -1,14 +1,7 @@
 package com.example.api.cars.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
-
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -75,10 +68,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", birthday=" + birthday +
+                "name:'" + name + '\'' +
+                ", email:'" + email + '\'' +
+                ",cpf:'" + cpf + '\'' +
+                ",birthday:" + birthday +
                 '}';
     }
 }
