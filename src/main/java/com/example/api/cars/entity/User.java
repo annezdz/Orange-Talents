@@ -27,7 +27,7 @@ public class User {
     @Deprecated
     public User(){ }
 
-    public User( String name, String email, String cpf, LocalDate birthday) {
+    public User(String name, String email, String cpf, LocalDate birthday) {
         this.name = name;
         this.email = email;
         this.cpf = cpf;
@@ -69,7 +69,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "name:'" + name + '\'' +
-                ", email:'" + email + '\'' +
+                ",email:'" + email + '\'' +
                 ",cpf:'" + cpf + '\'' +
                 ",birthday:" + birthday +
                 '}';

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.swing.text.MaskFormatter;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class UserResponseDto {
 
@@ -15,12 +16,21 @@ public class UserResponseDto {
     private final String cpf;
     private final LocalDate birthday;
 
+
     public UserResponseDto(User user) throws ParseException {
         this.id = user.getId();
         this.name = user.getName();
         this.email = user.getEmail();
         this.cpf = formatCpf(user.getCpf());
         this.birthday = user.getBirthday();
+    }
+
+    public UserResponseDto(int id, String name, String email, String cpf, LocalDate birthday) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.cpf = cpf;
+        this.birthday = birthday;
     }
 
     public Integer getId() {
@@ -51,5 +61,28 @@ public class UserResponseDto {
         } catch (ParseException e) {
             throw new ParseException(e.getMessage(),0);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name:'" + name + '\'' +
+                ",email:'" + email + '\'' +
+                ",cpf:'" + cpf + '\'' +
+                ",birthday:" + birthday +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserResponseDto that = (UserResponseDto) o;
+        return Objects.equals(name, that.name) && Objects.equals(email, that.email) && Objects.equals(cpf, that.cpf) && Objects.equals(birthday, that.birthday);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, email, cpf, birthday);
     }
 }
