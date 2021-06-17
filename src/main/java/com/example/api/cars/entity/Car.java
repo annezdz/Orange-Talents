@@ -18,15 +18,15 @@ public class Car {
     private String type;
 
     @Column(nullable = false)
-    private String licensePlate;
+    private String year;
 
     @Deprecated
     public Car() { }
 
-    public Car(String brand, String type, String licensePlate) {
+    public Car(String brand, String type, String year) {
         this.brand = brand;
         this.type = type;
-        this.licensePlate = licensePlate;
+        this.year = year;
     }
 
     public int getId() {
@@ -41,8 +41,8 @@ public class Car {
         return type;
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
+    public String getYear() {
+        return year;
     }
 
     @Override
@@ -50,12 +50,12 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(brand, car.brand) && Objects.equals(type, car.type) && Objects.equals(licensePlate, car.licensePlate);
+        return Objects.equals(brand, car.brand) && Objects.equals(type, car.type) && Objects.equals(year, car.year);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, type, licensePlate);
+        return Objects.hash(brand, type, year);
     }
 
     @Override
@@ -63,7 +63,8 @@ public class Car {
         return "Car{" +
                 "brand:'" + brand + '\'' +
                 ",type:'" + type + '\'' +
-                ",licensePlate:'" + licensePlate + '\'' +
+                ",year:'" + year + '\'' +
                 '}';
     }
+
 }
