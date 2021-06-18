@@ -6,10 +6,13 @@ import javax.persistence.Id;
 @Entity
 public class Brand {
 
-    private final String nome;
+    private String nome;
 
     @Id
-    private final Integer codigo;
+    private Integer codigo;
+
+    @Deprecated
+    public Brand() { }
 
     public Brand(String nome, Integer codigo) {
         this.nome = nome;
@@ -23,6 +26,5 @@ public class Brand {
     public Integer getCodigo() {
         return codigo;
     }
-
 
 }
