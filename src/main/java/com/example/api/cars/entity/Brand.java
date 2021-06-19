@@ -1,9 +1,6 @@
 package com.example.api.cars.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -16,7 +13,7 @@ public class Brand {
     @Id
     private Integer codigo;
 
-    @OneToMany
+    @OneToMany(mappedBy="brand")
     private List<CarModel> carList;
 
     @Deprecated

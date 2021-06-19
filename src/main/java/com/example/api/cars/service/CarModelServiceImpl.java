@@ -41,7 +41,7 @@ public class CarModelServiceImpl implements CarModelService{
 
     public List<CarModel> testeCarModels(){
         brandRepository.findAll().forEach(c ->
-                carModelRepository.saveAllAndFlush(valueService.getTypes(c.getCodigo()).getModelos()));
+                carModelRepository.saveAll(valueService.getTypes(c.getCodigo()).getModelos()));
 
         return carModelRepository.findAll();
     }

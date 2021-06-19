@@ -1,9 +1,6 @@
 package com.example.api.cars.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "carModels")
@@ -15,7 +12,8 @@ public class CarModel {
     @Id
     private String codigo;
 
-    @ManyToOne()
+    @ManyToOne
+    @JoinColumn(name="brand_id",referencedColumnName = "codigo")
     private Brand brand;
 
     public CarModel() {
