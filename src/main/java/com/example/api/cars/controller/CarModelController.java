@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/models")
 public class CarModelController {
 
-    private CarModelService carModelService;
+    private final CarModelService carModelService;
 
     public CarModelController(CarModelService carModelService) {
         this.carModelService = carModelService;

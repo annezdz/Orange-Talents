@@ -7,6 +7,7 @@ import com.example.api.cars.repository.BrandRepository;
 import com.example.api.cars.repository.CarModelRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,16 +28,10 @@ public class CarModelServiceImpl implements CarModelService{
     }
 
 
-    @Override
     public List<CarModel> getCarModels(String nome) {
-        //var getBrand =  valueService.getBrands().stream().mapToInt(Brand::getCodigo);
-        var getBrand = brandRepository.findByNome(nome);
-        var teste= valueService.getTypes(getBrand.getCodigo()).getModelos();
-//        var repos = carModelRepository.findAll()
-//        carModelRepository::save)
-//                .collect(Collectors.toList());
+        var teste = brandRepository.findByNome(nome).getCodigo();
+        return new ArrayList<>(valueService.getTypes(teste).getModelos());
 
-        return teste;
     }
 
     public List<CarModel> testeCarModels(){
@@ -46,6 +41,7 @@ public class CarModelServiceImpl implements CarModelService{
         return carModelRepository.findAll();
     }
 }
+
 
 
 
