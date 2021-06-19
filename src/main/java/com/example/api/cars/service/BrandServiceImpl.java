@@ -3,9 +3,7 @@ package com.example.api.cars.service;
 import com.example.api.cars.connectors.ValueService;
 import com.example.api.cars.entity.Brand;
 import com.example.api.cars.repository.BrandRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;

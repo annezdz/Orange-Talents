@@ -1,26 +1,24 @@
 package com.example.api.cars.service;
 
-import com.example.api.cars.dto.CarRequestDto;
-import com.example.api.cars.entity.Car;
-import com.example.api.cars.repository.CarRepository;
+import com.example.api.cars.entity.Brand;
+import com.example.api.cars.repository.BrandRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService {
 
-    private final BrandService brandService;
+    private final BrandRepository brandRepository;
 
-    private final CarRepository carRepository;
-
-
-    public CarServiceImpl(BrandService brandService, CarRepository carRepository) {
-        this.brandService = brandService;
-        this.carRepository = carRepository;
+    public CarServiceImpl(BrandRepository brandRepository) {
+        this.brandRepository = brandRepository;
     }
 
-
-    public Car create(CarRequestDto carRequestDto) {
-        return null;
+    @Override
+    public List<Brand> findAll() {
+        var getBrands = brandRepository.findAll();
+       return getBrands;
     }
 }
 
