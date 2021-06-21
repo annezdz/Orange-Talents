@@ -18,9 +18,9 @@ public class CarModelController {
         this.carModelService = carModelService;
     }
 
-    @GetMapping("/{brand}")
-    public List<CarModel> getCarModels(@PathVariable String brand){
-        var modelCars = carModelService.getCarModels(brand);
+    @GetMapping("/{codigo}")
+    public List<CarModel> getCarModels(@PathVariable String nome){
+        var modelCars = carModelService.getCarModels(nome);
         return modelCars;
     }
 

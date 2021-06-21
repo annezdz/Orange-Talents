@@ -10,4 +10,6 @@ public interface CarModelService {
     List<CarModel> getCarModels(String nome);
 
     List<CarModel> testeCarModels();
+
+    List<CarModel> saveCarModel(String name);
 }
