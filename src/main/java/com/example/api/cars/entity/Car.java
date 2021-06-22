@@ -15,18 +15,18 @@ public class Car {
     private String brand;
 
     @Column(nullable = false)
-    private String type;
+    private String carModel;
 
     @Column(nullable = false)
-    private String year;
+    private String carYear;
 
     @Deprecated
     public Car() { }
 
-    public Car(String brand, String type, String year) {
+    public Car(String brand, String carModel, String carYear) {
         this.brand = brand;
-        this.type = type;
-        this.year = year;
+        this.carModel = carModel;
+        this.carYear = carYear;
     }
 
     public int getId() {
@@ -37,12 +37,12 @@ public class Car {
         return brand;
     }
 
-    public String getType() {
-        return type;
+    public String getCarModel() {
+        return carModel;
     }
 
-    public String getYear() {
-        return year;
+    public String getCarYear() {
+        return carYear;
     }
 
     @Override
@@ -50,21 +50,20 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(brand, car.brand) && Objects.equals(type, car.type) && Objects.equals(year, car.year);
+        return Objects.equals(brand, car.brand) && Objects.equals(carModel, car.carModel) && Objects.equals(carYear, car.carYear);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, type, year);
+        return Objects.hash(brand, carModel, carYear);
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "brand:'" + brand + '\'' +
-                ",type:'" + type + '\'' +
-                ",year:'" + year + '\'' +
+                ", brand='" + brand + '\'' +
+                ", carModel='" + carModel + '\'' +
+                ", carYear='" + carYear + '\'' +
                 '}';
     }
-
 }
