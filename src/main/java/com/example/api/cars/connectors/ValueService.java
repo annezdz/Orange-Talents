@@ -23,6 +23,6 @@ public interface ValueService {
     CarModelResponseDto getTypes(@PathVariable("id") int id);
 
     @GetMapping("fipe/api/v1/carros/marcas/{idBrand}/modelos/{idCarModel}/anos")
-    List<CarYearResponseDto> getCarYears(@PathVariable() int idBrand, int idCarModel);
+    List<CarYearResponseDto> getCarYears(@PathVariable() int idBrand, @PathVariable() int idCarModel);
 
 }

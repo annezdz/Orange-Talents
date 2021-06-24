@@ -8,14 +8,14 @@ public class CarResponseDto {
 
     private final int id;
     private final String brand;
-    private final String type;
-    private final String year;
+    private final String carModel;
+    private final String carYear;
 
     public CarResponseDto(Car car) {
         this.id = car.getId();
         this.brand = car.getBrand();
-        this.type = car.getType();
-        this.year = car.getYear();
+        this.carModel = car.getCarModel();
+        this.carYear = car.getCarYear();
     }
 
     public int getId() {
@@ -26,12 +26,12 @@ public class CarResponseDto {
         return brand;
     }
 
-    public String getType() {
-        return type;
+    public String getCarModel() {
+        return carModel;
     }
 
-    public String getYear() {
-        return year;
+    public String getCarYear() {
+        return carYear;
     }
 
     @Override
@@ -39,20 +39,20 @@ public class CarResponseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarResponseDto that = (CarResponseDto) o;
-        return Objects.equals(brand, that.brand) && Objects.equals(type, that.type) && Objects.equals(year, that.year);
+        return Objects.equals(brand, that.brand) && Objects.equals(carModel, that.carModel) && Objects.equals(carYear, that.carYear);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, type, year);
+        return Objects.hash(brand, carModel, carYear);
     }
 
     @Override
     public String toString() {
         return "CarResponseDto{" +
                 "brand:'" + brand + '\'' +
-                ",type:'" + type + '\'' +
-                ",year:'" + year + '\'' +
+                ",type:'" + carModel + '\'' +
+                ",year:'" + carYear + '\'' +
                 '}';
     }
 }

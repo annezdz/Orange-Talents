@@ -59,23 +59,8 @@ public class CarModel{
     }
 
     public void setCarYears(Set<CarYear> carYears){
-        this.carYears=carYears;
+        this.carYears = carYears;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CarModel carModel = (CarModel) o;
-        return Objects.equals(nome, carModel.nome) && Objects.equals(codigo, carModel.codigo) && Objects.equals(brand, carModel.brand) && Objects.equals(carYears, carModel.carYears);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, codigo, brand, carYears);
-    }
-
-
 
     public <T> Set <T> mapCarYears(Function<CarYear, T> mapperFunction){
         return this.carYears
@@ -86,15 +71,5 @@ public class CarModel{
 
     public void addCarYears(List<CarYear> modelList){
         this.carYears.addAll(modelList);
-    }
-
-    @Override
-    public String toString() {
-        return "CarModel{" +
-                "nome='" + nome + '\'' +
-                ", codigo=" + codigo +
-                ", brand=" + brand +
-                ", carYears=" + getCarYears().stream().collect(Collectors.toSet()) +
-                '}';
     }
 }

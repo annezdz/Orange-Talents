@@ -54,30 +54,6 @@ public class Brand {
         this.carModel = carModel;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Brand brand = (Brand) o;
-        return Objects.equals(nome, brand.nome) && Objects.equals(codigo, brand.codigo) && Objects.equals(carModel,
-
-                brand.carModel);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, codigo, carModel);
-    }
-
-    @Override
-    public String toString() {
-        return "Brand{" +
-                "nome='" + nome + '\'' +
-                ", codigo=" + codigo +
-                ", carModel=" + getCarModel().stream().collect(Collectors.toSet()) +
-                '}';
-    }
-
     public <T> Set<T> mapCarModels(Function<CarModel, T> mapperFunction){
         return this.carModel
                 .stream()
